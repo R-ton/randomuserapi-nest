@@ -1,5 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { AppService, Users } from './app.service';
+import { AppService } from './app.service';
+import { Users } from './entity/user.entity';
 
 interface Response{
   code: Number;
@@ -22,10 +23,10 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-
+  
   @Get('/api/users/import/:seed/:country/:count')
   async getUser(@Param('seed') seed: string, @Param('country') country: string, @Param('count') count: Number){
-    await this.appService.getUsers(seed,country,count).then((success)=>{
+    await this.appService.getUsers(seed,country,count).then((success: Users[])=>{
       // console.log(success.data.results)
       let result = success; 
       this.iResp.data = result;
