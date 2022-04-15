@@ -1,0 +1,10 @@
+http:
+  host: 'localhost'
+  port: 4641
+  api: 'https://randomuser.me/api/1.2/'
+
+db:
+  postgres:
+    url: 'localhost'
+    port: 5432
+    database: 'test'
