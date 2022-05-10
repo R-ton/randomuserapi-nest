@@ -27,7 +27,9 @@ describe('UserController', () => {
 
   describe('root', () => {
     it('should return a list of users', () => {
-      expect(userController.getAllUsers()).toBeDefined();
+      return userController.getAllUsers().then(data => {
+        expect(data).toBeDefined();
+      });
     });
   });
 
@@ -44,3 +46,7 @@ describe('UserController', () => {
 //     });
 //   });
 });
+function done() {
+  throw new Error('Function not implemented.');
+}
+
