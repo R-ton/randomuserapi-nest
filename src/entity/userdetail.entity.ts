@@ -2,6 +2,7 @@ import { Expose } from "class-transformer";
 //Class Users as entity
 export const GROUP_ALL_USERS = 'group_all_users';
 import isEqual from 'lodash/isEqual';
+import { Users } from "./user.entity";
 interface Login{
     uuid: string;
     username: string;
@@ -9,18 +10,21 @@ interface Login{
     passwordstrength: number;
 }
 
-export class Users{
+export class UsersDetail extends Users{
     @Expose({ groups: [GROUP_ALL_USERS] })
-    name: Object;
+    gender: string;
     @Expose({ groups: [GROUP_ALL_USERS] })
-    email: String;
+    location: object;
     @Expose({ groups: [GROUP_ALL_USERS] })
     login: Login;
     @Expose({ groups: [GROUP_ALL_USERS] })
-    registered: Object;
+    dob: Object;
     @Expose({ groups: [GROUP_ALL_USERS] })
-    picture: Object;
-
+    phone: string;
+    @Expose({ groups: [GROUP_ALL_USERS] })
+    cell: string;
+    @Expose({ groups: [GROUP_ALL_USERS] })
+    nat: string;
     equals(obj: Object){ 
        return isEqual(this,obj)
     }
