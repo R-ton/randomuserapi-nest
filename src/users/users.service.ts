@@ -87,7 +87,7 @@ export class UsersService {
   return val;
   }
 
-  getDynamicProperty(prop: Users){
+  getDynamicProperty(prop: Partial<Users> | Partial<UsersDetail> ){
     const promise = this.getUsers(this.iSeed,'*',500,'');
     const dataPromise: Promise<void | Users[]> = promise.then((response) => {
       let data: Array<Users> = response;
@@ -134,17 +134,6 @@ export class UsersService {
       return error;
     });
     return dataPromise;
-    // const promise = axios.get(this.iApi + '?seed=' + this.iSeed+'&results=500&nat=FR&inc=login');
-    // const dataPromise: Promise<Users[]> = promise.then((response) => {
-    //   let data: Array<Users> = response.data.results;
-    //   // console.log(uuid)
-    //   data = data.filter(x => {
-    //     return x.login.uuid = uuid
-    //   });
-    //   console.log(data)
-    //   return data;
-    // });
-    // return dataPromise;
   }
 
   @SerializeOptions({
