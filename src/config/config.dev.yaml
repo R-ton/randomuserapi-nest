@@ -2,7 +2,7 @@ http:
   host: 'localhost'
   port: 4641
   api: 'https://randomuser.me/api/1.2/'
-
+  # api: 'http://localhost:4641/randuser.json'
 db:
   postgres:
     url: 'localhost'
